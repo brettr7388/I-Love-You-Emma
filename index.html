@@ -4,10 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Envelope + Letter (Open/Close on Click)</title>
+    <title>Happy Birthday Emma!</title>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+    <div class="background">
+        <div class="balloons"></div>
+        <div class="balloons"></div>
+        <div class="balloons"></div>
+    </div>
     <div class="container">
         <div class="envelope-wrapper">
             <div class="envelope">
@@ -24,10 +29,15 @@
             <div class="heart"></div>
         </div>
     </div>
+    <div class="confetti" id="confetti"></div>
     <script>
         const envelope = document.querySelector('.envelope-wrapper');
+        const confetti = document.getElementById('confetti');
+
         envelope.addEventListener('click', () => {
             envelope.classList.toggle('flap');
+            confetti.classList.add('show');
+            setTimeout(() => confetti.classList.remove('show'), 3000);
         });
     </script>
 </body>

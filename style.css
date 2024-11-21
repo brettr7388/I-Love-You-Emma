@@ -1,37 +1,44 @@
-:root{
+/* Root Variables */
+:root {
     --primary: #fff;
-    --bg-color: rgb(5, 53, 61);
+    --bg-color: linear-gradient(to bottom, #a2d2ff, #d9faff);
     --bg-envelope-color: #f5edd1;
     --envelope-tab: #ecdeb8;
     --envelope-cover: #e6cfa7;
     --shadow-color: rgba(0, 0, 0, 0.2);
     --txt-color: #444;
     --heart-color: rgb(252, 8, 231);
-  }
-  body{
+    --confetti-color: #ff6392;
+}
+
+/* Reset and Body Styling */
+body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background: var(--bg-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .container {
+    overflow: hidden;
+}
+
+/* Container for Envelope */
+.container {
     height: 100vh;
     display: grid;
     place-items: center;
-  }
-  .container > .envelope-wrapper {
+}
+
+/* Envelope Styling */
+.container > .envelope-wrapper {
     background: var(--bg-envelope-color);
     box-shadow: 0 0 40px var(--shadow-color);
-  }
-  .envelope-wrapper > .envelope {
+}
+.envelope-wrapper > .envelope {
     position: relative;
     width: 300px;
     height: 230px;
-  }
-  .envelope-wrapper > .envelope::before {
+}
+.envelope-wrapper > .envelope::before {
     content: "";
     position: absolute;
     top: 0;
@@ -41,8 +48,8 @@
     border-left: 150px solid transparent;
     transform-origin: top;
     transition: all 0.5s ease-in-out 0.7s;
-  }
-  .envelope-wrapper > .envelope::after {
+}
+.envelope-wrapper > .envelope::after {
     content: "";
     position: absolute;
     z-index: 2;
@@ -52,8 +59,8 @@
     border-right: 150px solid var(--envelope-cover);
     border-bottom: 100px solid var(--envelope-cover);
     border-left: 150px solid var(--envelope-cover);
-  }
-  .envelope > .letter {
+}
+.envelope > .letter {
     position: absolute;
     right: 20%;
     bottom: 0;
@@ -64,15 +71,15 @@
     transition: all 1s ease-in-out;
     box-shadow: 0 0 5px var(--shadow-color);
     padding: 20px 10px;
-  }
-  
-  .envelope > .letter > .text {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.envelope > .letter > .text {
     color: var(--txt-color);
     text-align: left;
-    font-size: 10px;
-  }
-  .heart {
+    font-size: 14px;
+}
+
+/* Heart Styling */
+.heart {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -84,32 +91,92 @@
     transition: transform 0.5s ease-in-out 1s;
     box-shadow: 0 1px 6px var(--shadow-color);
     cursor: pointer;
-  }
-  .heart:before, 
-  .heart:after {
+}
+.heart:before,
+.heart:after {
     content: "";
     position: absolute;
     width: 15px;
     height: 15px;
     background-color: var(--heart-color);
     border-radius: 50%;
-  }
-  .heart:before {
+}
+.heart:before {
     top: -7.5px;
-  }
-  .heart:after {
+}
+.heart:after {
     right: 7.5px;
-  }
-  .flap > .envelope:before {
+}
+
+/* Envelope Open/Close Animation */
+.flap > .envelope:before {
     transform: rotateX(180deg);
     z-index: 0;
-  }
-  .flap > .envelope > .letter {
+}
+.flap > .envelope > .letter {
     bottom: 100px;
     transform: scale(1.5);
     transition-delay: 1s;
-  }
-  .flap > .heart {
+}
+.flap > .heart {
     transform: rotate(90deg);
     transition-delay: 0.4s;
-  }
+}
+
+/* Background Balloons */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+.balloons {
+    position: absolute;
+    width: 50px;
+    height: 70px;
+    background: pink;
+    border-radius: 50%;
+    animation: float 6s infinite ease-in-out;
+    bottom: -100px;
+}
+.balloons:nth-child(2) {
+    left: 20%;
+    background: lightblue;
+    animation-delay: 1s;
+}
+.balloons:nth-child(3) {
+    left: 50%;
+    background: lightgreen;
+    animation-delay: 2s;
+}
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-400px) rotate(15deg);
+    }
+    100% {
+        transform: translateY(-800px);
+    }
+}
+
+/* Confetti Styling */
+.confetti {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    pointer-events: none;
+    background-image: radial-gradient(circle, var(--confetti-color) 5%, transparent 5%);
+    background-size: 10px 10px;
+}
+.confetti.show {
+    display: block;
+}

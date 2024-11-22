@@ -108,6 +108,28 @@ body {
     right: 7.5px;
 }
 
+/* Heart Button Styling */
+.heart-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--heart-color);
+    color: white;
+    font-size: 20px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    text-decoration: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.heart-button:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
+
 /* Envelope Open/Close Animation */
 .flap > .envelope:before {
     transform: rotateX(180deg);

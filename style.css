@@ -1,204 +1,209 @@
 /* Root Variables */
 :root {
-    --primary: #fff;
-    --bg-color: linear-gradient(to bottom, #a2d2ff, #d9faff);
-    --bg-envelope-color: #f5edd1;
-    --envelope-tab: #ecdeb8;
-    --envelope-cover: #e6cfa7;
-    --shadow-color: rgba(0, 0, 0, 0.2);
-    --txt-color: #444;
-    --heart-color: rgb(252, 8, 231);
-    --confetti-color: #ff6392;
+  --primary: #fff;
+  --bg-color: linear-gradient(to bottom, #a2d2ff, #d9faff);
+  --bg-envelope-color: #f5edd1;
+  --envelope-tab: #ecdeb8;
+  --envelope-cover: #e6cfa7;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --txt-color: #444;
+  --heart-color: rgb(252, 8, 231);
+  --confetti-color: #ff6392;
 }
 
 /* Reset and Body Styling */
 body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background: var(--bg-color);
-    overflow: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background: var(--bg-color);
+  overflow: hidden;
 }
 
 /* Container for Envelope */
 .container {
-    height: 100vh;
-    display: grid;
-    place-items: center;
+  height: 100vh;
+  display: grid;
+  place-items: center;
 }
 
 /* Envelope Styling */
 .container > .envelope-wrapper {
-    background: var(--bg-envelope-color);
-    box-shadow: 0 0 40px var(--shadow-color);
+  background: var(--bg-envelope-color);
+  box-shadow: 0 0 40px var(--shadow-color);
 }
 .envelope-wrapper > .envelope {
-    position: relative;
-    width: 300px;
-    height: 230px;
+  position: relative;
+  width: 300px;
+  height: 230px;
 }
 .envelope-wrapper > .envelope::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    z-index: 2;
-    border-top: 130px solid var(--envelope-tab);
-    border-right: 150px solid transparent;
-    border-left: 150px solid transparent;
-    transform-origin: top;
-    transition: all 0.5s ease-in-out 0.7s;
+  content: "";
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  border-top: 130px solid var(--envelope-tab);
+  border-right: 150px solid transparent;
+  border-left: 150px solid transparent;
+  transform-origin: top;
+  transition: all 0.5s ease-in-out 0.7s;
 }
 .envelope-wrapper > .envelope::after {
-    content: "";
-    position: absolute;
-    z-index: 2;
-    width: 0px;
-    height: 0px;
-    border-top: 130px solid transparent;
-    border-right: 150px solid var(--envelope-cover);
-    border-bottom: 100px solid var(--envelope-cover);
-    border-left: 150px solid var(--envelope-cover);
+  content: "";
+  position: absolute;
+  z-index: 2;
+  width: 0px;
+  height: 0px;
+  border-top: 130px solid transparent;
+  border-right: 150px solid var(--envelope-cover);
+  border-bottom: 100px solid var(--envelope-cover);
+  border-left: 150px solid var(--envelope-cover);
 }
 .envelope > .letter {
-    position: absolute;
-    right: 20%;
-    bottom: 0;
-    width: 54%;
-    height: 80%;
-    background: var(--primary);
-    text-align: center;
-    transition: all 1s ease-in-out;
-    box-shadow: 0 0 5px var(--shadow-color);
-    padding: 20px 10px;
+  position: absolute;
+  right: 20%;
+  bottom: 0;
+  width: 54%;
+  height: 80%;
+  background: var(--primary);
+  text-align: center;
+  transition: all 1s ease-in-out;
+  box-shadow: 0 0 5px var(--shadow-color);
+  padding: 20px 10px;
 }
 .envelope > .letter > .text {
-    color: var(--txt-color);
-    text-align: left;
-    font-size: 14px;
+  color: var(--txt-color);
+  text-align: left;
+  font-size: 6px;
 }
 
 /* Heart Styling */
 .heart {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 15px;
-    height: 15px;
-    background: var(--heart-color);
-    z-index: 4;
-    transform: translate(-50%, -20%) rotate(45deg);
-    transition: transform 0.5s ease-in-out 1s;
-    box-shadow: 0 1px 6px var(--shadow-color);
-    cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 15px;
+  height: 15px;
+  background: var(--heart-color);
+  z-index: 4;
+  transform: translate(-50%, -20%) rotate(45deg);
+  transition: transform 0.5s ease-in-out 1s;
+  box-shadow: 0 1px 6px var(--shadow-color);
+  cursor: pointer;
 }
 .heart:before,
 .heart:after {
-    content: "";
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    background-color: var(--heart-color);
-    border-radius: 50%;
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: var(--heart-color);
+  border-radius: 50%;
 }
 .heart:before {
-    top: -7.5px;
+  top: -7.5px;
 }
 .heart:after {
-    right: 7.5px;
+  right: 7.5px;
 }
 
-/* Heart Button Styling */
 .heart-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: var(--heart-color);
-    color: white;
-    font-size: 20px;
-    width: 50px;
-    height: 50px;
-    text-align: center;
-    line-height: 50px;
-    border-radius: 50%;
-    text-decoration: none;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--heart-color);
+  color: white;
+  font-size: 30px; /* Increased font size */
+  width: 70px; /* Increased width */
+  height: 70px; /* Increased height */
+  text-align: center;
+  line-height: 70px; /* Match height for centering */
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .heart-button:hover {
-    transform: scale(1.2);
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  transform: scale(1.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 }
+
 
 /* Envelope Open/Close Animation */
 .flap > .envelope:before {
-    transform: rotateX(180deg);
-    z-index: 0;
+  transform: rotateX(180deg);
+  z-index: 0;
 }
 .flap > .envelope > .letter {
-    bottom: 100px;
-    transform: scale(1.5);
-    transition-delay: 1s;
+  bottom: 100px;
+  transform: scale(1.5);
+  transition-delay: 1s;
 }
 .flap > .heart {
-    transform: rotate(90deg);
-    transition-delay: 0.4s;
+  transform: rotate(90deg);
+  transition-delay: 0.4s;
 }
 
 /* Background Balloons */
 .background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
 }
 .balloons {
-    position: absolute;
-    width: 50px;
-    height: 70px;
-    background: pink;
-    border-radius: 50%;
-    animation: float 6s infinite ease-in-out;
-    bottom: -100px;
+  position: absolute;
+  width: 50px;
+  height: 70px;
+  background: pink;
+  border-radius: 50%;
+  animation: float 6s infinite ease-in-out;
+  bottom: -100px;
 }
 .balloons:nth-child(2) {
-    left: 20%;
-    background: lightblue;
-    animation-delay: 1s;
+  left: 20%;
+  background: lightblue;
+  animation-delay: 1s;
 }
 .balloons:nth-child(3) {
-    left: 50%;
-    background: lightgreen;
-    animation-delay: 2s;
+  left: 50%;
+  background: lightgreen;
+  animation-delay: 2s;
 }
 @keyframes float {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-400px) rotate(15deg);
-    }
-    100% {
-        transform: translateY(-800px);
-    }
+  0% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-400px) rotate(15deg);
+  }
+  100% {
+      transform: translateY(-800px);
+  }
 }
 
 /* Confetti Styling */
 .confetti {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 10;
-    pointer-events: none;
-    background-image: radial-gradient(circle, var(--confetti-color) 5%, transparent 5%);
-    background-size: 10px 10px;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  pointer-events: none;
+  background-image: radial-gradient(circle, var(--confetti-color) 5%, transparent 5%);
+  background-size: 10px 10px;
 }
 .confetti.show {
-    display: block;
+  display: block;
+}
+
+
+.indent {
+  margin-left: 8px; /* Adjust the indentation as needed */
 }
